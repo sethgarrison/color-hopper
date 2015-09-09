@@ -13,3 +13,9 @@
 - node
 - gulp
 - bower
+
+
+### Tested On:
+
+- chrome current
+- iphone6 safari 

@@ -4,7 +4,7 @@
 			<h2>Your Data</h2>
 		</div>
 	</md-toolbar>
-	<md-dialog-content style="max-width:800px;max-height:810px; margin: 2em; min-width: 500px; overflow:auto" layout="row" layout-wrap>
+	<md-dialog-content style="overflow:auto" layout="row" layout-wrap>
 		<md-button flex="100" class="md-raised" layout="row" layout-align="center center" ng-click="openDataSet(data)" ng-repeat="data in dataSet track by $index"><p>{{data.objectId}} </p> <span>---</span> <small> Created on: {{data.createdAt | date: 'mediumDate'}} {{data.createdAt | date: 'mediumTime'}}</small></md-button>
 
 	</md-dialog-content>

@@ -1,26 +1,15 @@
 
-<section>
+<section xlayout="column" layout-fill layout-align="start start">
 
-  <div flex="100" class="tool-bar" layout="row" layout-align="start center" layout-padding layout-margin layout-wrap>
-    <h1 class="header" flex="50">Color Hopper</h1>
-    <div flex layout="column">
-      <md-button ng-click="addNewColumn()" class="" flex="20">Add Column</md-button>
-      <md-button ng-click="exportJson()" class="" flex="20">Export JSON</md-button>
-      <md-button ng-click="loadData()" class="" flex="20">Load Data Set</md-button>
+  <div class="header" layout="row" layout-align="start start" xlayout-padding layout-margin layout-wrap>
+    <h1 flex="50" flex-sm="100">Color Hopper</h1>
+    <div flex  flex-sm="100" layout="column" layout-fill layout-align="start end">
+      <md-button myclick="addNewColumn()" class="" flex>Add</md-button>
+      <md-button myclick="exportJson()" class="" flex>Export</md-button>
+      <md-button myclick="loadData()" class="" flex>Load</md-button>
     </div>
   </div>
 
-  <div layout="row" class="chart-container" layout-wrap>
-    <div flex="100" layout="row" xclass="chart">
-      <div ng-repeat="column in columnHelper.columns | orderBy: 'name' track by $index" class="column" flex>
-        <h2>{{column.name}}</h2>
-        <small>{{columnHelper.getRowCount(column)}}</small>
-        <hr/>
+  <color-hopper></color-hopper>
 
-        <div class="row" layout="row" ng-repeat="row in column.rows track by $index">
-          <span ng-repeat="cell in row | orderBy:'order' track by $index" class="cell {{cell.color}}" ng-click="columnHelper.moveRight(cell, row, $parent.$parent.$index)"></span>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>

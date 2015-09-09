@@ -10,15 +10,19 @@ html {
 }
 
 .header{
-  margin-top: 8%;
-  margin-bottom: 5%;
+  //margin-top: 8%;
+  margin-bottom: 8vmin;
+  //padding-bottom: 8vmin;
+  //border-bottom: 1px solid black;
 }
 .section{
   width: 80%;
   margin: 12px auto;
+  height: 100vh;
   //border: 1px solid black;
 }
 .column{
+  font-size: 3vmin;
   border-right: 1px solid grey;
   &:last-of-type{
     border-right: none;
@@ -26,18 +30,19 @@ html {
   text-align: center;
 }
 .row{
-  min-height: 100px;
+  min-height: 12.5vmin;
   border-bottom: 1px solid grey;
   //padding: .5em;
 }
 
 .cell{
-  padding: 10px;
+  //padding: 10px;
+  //padding-top: 100%;
   background-color: turquoise;
-  margin: 12px;
-  color: white;
+  margin: 2px;
+  //color: white;
   text-align: center;
-  width: 100px;
+  width: 12.5vmin;
   border: 2px solid black;
   //border-radius: 12px;
   //transition: opacity .23s;
@@ -65,10 +70,7 @@ html {
 }
 
 .tool-bar{
-  margin-top: 20px;
-  padding: 20px;
 
-  //background-color: #fff;
 }
 
 .modal-content{
@@ -84,37 +86,18 @@ html {
 .valid{
   color: green;
 }
-//
-//.form-validation {
-//  transition:1s linear all;
-//}
-//.form-validation.ng-active {
-//  // messages are visible
-//}
-//.form-validation.ng-inactive {
-//  // messages are hidden
-//}
-//
+
 .message {
   transition:1s linear all;
   font-weight: 700;
 }
-//
-//.message.ng-enter {
-//
-//}
-//.message.ng-enter.ng-enter-active {
-//
-//}
-//
-//.message.ng-leave {
-//
-//}
-//.message.ng-leave.ng-leave-active {
-//
-//  color: green;
-//  opacity: .2;
-//}
+
+md-dialog-content{
+  max-width:90vmin;
+  max-height:810px;
+  margin: 2em;
+}
+
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector

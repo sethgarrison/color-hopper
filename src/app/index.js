@@ -20,10 +20,25 @@ angular.module('uitest', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
         $urlRouterProvider.otherwise('/');
     })
 
-    .run(function(){
+    .directive('myclick', function(){
+        return function(scope, elem, attrs){
+            elem.bind('touchstart click', function(event){
+                event.preventDefault();
+                event.stopPropagation();
+                scope.$apply(attrs['myclick']);
+            });
+        }
+    })
 
-        //TODO: for now, i'm hiding this so i can push to my public repo, to really run this, switch these out
-        Parse.initialize("hidingthis", "fromgithub");
+    .run(function($http){
+
+        //TODO: If you try running this code from the public github repo, you will get an error because this file is not present.
+        //It's only purpose is to load the necessary api keys to persist and load row data from parse, so commenting it out will allow you to
+        //run all other parts of the app
+        $http.get('app/parse.json').then(function(res){
+            var keys = res.data.keys;
+            Parse.initialize(keys[0], keys[1]);
+        });
 
     })
 

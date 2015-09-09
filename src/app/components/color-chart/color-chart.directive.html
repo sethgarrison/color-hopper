@@ -1,10 +1,14 @@
-<div flex="100" layout="row" class="chart">
-	<div ng-repeat="column in columns track by $index" class="column" flex>
-		<h2>{{column.name}}</h2>
-		<hr/>
+<div layout="row" class="chart-container" layout-wrap>
+	<div flex="100" layout="row" xclass="chart" xflex-sm="1">
+		<div ng-repeat="column in columnHelper.columns | orderBy: 'name' track by $index" class="column" flex xflex-sm="100">
+			<h2>{{column.name}}</h2>
+			<small>{{columnHelper.getRowCount(column)}}</small>
+			<hr/>
 
-		<div class="row" layout="row" ng-repeat="row in column.rows track by $index">
-			<span ng-repeat="cell in row | orderBy:'order' track by $index" class="cell {{cell.color}}" ng-click="moveRight(cell, row, $parent.$parent.$index)"></span>
+			<div class="row" layout="row" ng-repeat="row in column.rows track by $index">
+				<div ng-repeat="cell in row | orderBy:'order' track by $index" class="cell {{cell.color}}"
+				      myclick="columnHelper.moveRight(cell, row, $parent.$parent.$index)"></div>
+			</div>
 		</div>
 	</div>
 </div>

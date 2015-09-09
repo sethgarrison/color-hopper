@@ -3,6 +3,6 @@ bower_components/
 .sass-cache/
 .tmp/
 dist/
-parse.json
+src/app/parse.json
 .idea/
 ParseCode
