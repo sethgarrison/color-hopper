@@ -1,0 +1,19 @@
+<md-dialog aria-label="Column Data">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2>Your Data</h2>
+		</div>
+	</md-toolbar>
+	<md-dialog-content style="max-width:800px;max-height:810px; margin: 2em; min-width: 500px; overflow:auto" >
+		<pre>{{exportedJson | json}}</pre>
+	</md-dialog-content>
+	<div class="md-actions" layout="row">
+		<span flex></span>
+		<md-button ng-click="cancel()">
+			Close
+		</md-button>
+		<md-button ng-click="saveAndClose()">
+			Save Data
+		</md-button>
+	</div>
+</md-dialog>

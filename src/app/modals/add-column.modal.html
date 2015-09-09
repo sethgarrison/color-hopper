@@ -1,0 +1,52 @@
+<md-dialog aria-label="Column Name">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2>Enter Column Name</h2>
+		</div>
+	</md-toolbar>
+	<md-dialog-content style="max-width:800px;max-height:810px; margin: 2em; min-width: 300px;" layout="row"
+	                   layout-align="center center">
+		<form name="form">
+			<ul class="form-validation">
+				<li class="message" ng-class="{valid: !form.nameField.$error.required}" layout="row"
+				    layout-align="start center">
+					<small>Name is required for a new column.</small>
+				</li>
+				<li class="message" ng-class="{valid: !nameUnique()}" layout="row" layout-align="space-between center">
+					<small>Name must be unique.</small>
+				</li>
+				<li class="message" ng-class="{valid: !form.nameField.$error.capstart}" layout="row"
+				    layout-align="space-between center">
+					<small>First letter must be a capitol letter between A-F or N-Z</small>
+				</li>
+				<li class="message" ng-class="{valid: !form.nameField.$error.dashrequired}" layout="row"
+				    layout-align="space-between center">
+					<small>Longer column names must be in the following format: A-1234. The first letter should be
+						capitalized, the second character a dash, followed by 4 numbers.
+					</small>
+				</li>
+			</ul>
+
+			<md-input-container flex="100">
+				<label>Name</label>
+				<input
+						type="text"
+						ng-model="name"
+						name="nameField"
+						capstart
+						dashrequired
+						required/>
+			</md-input-container>
+		</form>
+	</md-dialog-content>
+	<div class="md-actions" layout="row">
+
+		<span flex></span>
+		<md-button ng-click="cancel()">
+			Cancel
+		</md-button>
+		<md-button ng-click="create()" xstyle="margin-right:20px;" ng-disabled="!form.$valid || nameUnique()">
+			Create
+		</md-button>
+	</div>
+</md-dialog>

@@ -1,0 +1,10 @@
+<div flex="100" layout="row" class="chart">
+	<div ng-repeat="column in columns track by $index" class="column" flex>
+		<h2>{{column.name}}</h2>
+		<hr/>
+
+		<div class="row" layout="row" ng-repeat="row in column.rows track by $index">
+			<span ng-repeat="cell in row | orderBy:'order' track by $index" class="cell {{cell.color}}" ng-click="moveRight(cell, row, $parent.$parent.$index)"></span>
+		</div>
+	</div>
+</div>

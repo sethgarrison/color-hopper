@@ -1,0 +1,26 @@
+
+<section>
+
+  <div flex="100" class="tool-bar" layout="row" layout-align="start center" layout-padding layout-margin layout-wrap>
+    <h1 class="header" flex="50">Color Hopper</h1>
+    <div flex layout="column">
+      <md-button ng-click="addNewColumn()" class="" flex="20">Add Column</md-button>
+      <md-button ng-click="exportJson()" class="" flex="20">Export JSON</md-button>
+      <md-button ng-click="loadData()" class="" flex="20">Load Data Set</md-button>
+    </div>
+  </div>
+
+  <div layout="row" class="chart-container" layout-wrap>
+    <div flex="100" layout="row" xclass="chart">
+      <div ng-repeat="column in columnHelper.columns | orderBy: 'name' track by $index" class="column" flex>
+        <h2>{{column.name}}</h2>
+        <small>{{columnHelper.getRowCount(column)}}</small>
+        <hr/>
+
+        <div class="row" layout="row" ng-repeat="row in column.rows track by $index">
+          <span ng-repeat="cell in row | orderBy:'order' track by $index" class="cell {{cell.color}}" ng-click="columnHelper.moveRight(cell, row, $parent.$parent.$index)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
