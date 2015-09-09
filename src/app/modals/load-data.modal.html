@@ -4,17 +4,19 @@
 			<h2>Your Data</h2>
 		</div>
 	</md-toolbar>
-	<md-dialog-content style="overflow:auto" layout="row" layout-wrap>
-		<md-button flex="100" class="md-raised" layout="row" layout-align="center center" ng-click="openDataSet(data)" ng-repeat="data in dataSet track by $index"><p>{{data.objectId}} </p> <span>---</span> <small> Created on: {{data.createdAt | date: 'mediumDate'}} {{data.createdAt | date: 'mediumTime'}}</small></md-button>
+	<md-dialog-content style="overflow:auto" layout="row" layout-wrap xlayout-margin>
+		<md-button
+      flex="50" xclass="md-raised"
+      ng-click="openDataSet(data)"
+      ng-repeat="data in dataSet track by $index">
+      <!--{{data.objectId}} Created on: -->
+      {{data.createdAt | date: 'shortDate'}} - {{data.createdAt | date: 'shortTime'}}</md-button>
 
 	</md-dialog-content>
 	<div class="md-actions" layout="row">
 		<span flex></span>
 		<md-button ng-click="cancel()">
 			Close
-		</md-button>
-		<md-button ng-click="saveAndClose()">
-			Save Data
 		</md-button>
 	</div>
 </md-dialog>
